@@ -1,16 +1,10 @@
-# CSE201-Project
-Iteration 1
-- Contains:
-    - App class
-    - Database class
-        - TODO:
-            - Add function to add new app to database
-            - Save to json file
-            - Filter function
-    - Homepage html
-        - css
-        - script
-    - App page html
-        - css
-        - script
-    - 100 app data
+# CSE201-Project Group 12  <br/>
+
+Project members: <br/>
+Ethan Davila - developer  <br/>
+Tyler Hilgeman - tech manager  <br/>
+Jiaran Liu - developer  <br/>
+Will Mechler - project manager  <br/>
+
+Current site with our iteration 1 version  <br/>
+http://ceclnx01.cec.miamioh.edu/~hilgemtj/cse201-project/HTML/homepage.html
