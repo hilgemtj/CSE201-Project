@@ -38,3 +38,5 @@ if(thisApp.price == 0) {
 $("#devHead").text(thisApp.developer);
 $("#descriptionPar").text(thisApp.description);
 $("#storePar").text(thisApp.store);
+$("#storePar").attr("href", thisApp.url);
+
