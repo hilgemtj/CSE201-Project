@@ -125,7 +125,7 @@ searchForm.addEventListener('keypress', function(event) {
 	}
 }, false);
 
-// Dynamically filters the apps list by inGoogle
+// Dynamically filters the apps list by inApple
 const inApple = document.getElementById("checkbox1");
 inApple.addEventListener('click', updateList, false);
 
