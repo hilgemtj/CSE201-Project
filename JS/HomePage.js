@@ -85,7 +85,7 @@ var updateList = function(event)
 		appsList = tempList;
 	}
 
-	// filters by isPaid
+	// filters by isFree
 	if (isPaid.checked)
 	{
 		var tempList = [];
