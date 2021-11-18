@@ -3,34 +3,35 @@ loadJSON(db);
 init();
 var apps = new Database();
 
-
 // Making list
-for (const item in apps.database) {
-	console.log(apps.database[item].title);
-	$("#listView").append(
-  		'<div id="listItem" class="row">' +
-			'<div class="col-md-2">' +
-				'<img id="img1" src="' + apps.database[item].icon + '" alt="App" width="75" height="75">' +
-			'</div>' +
-  			'<div class="col-md-10">' +
-				'<a id="link" href="./app.html?app_id=' + apps.database[item].app_id + '">' + apps.database[item].title + '</a>' +
-			'</div>' +
-		'</div>'
-  	);
-}
+// for (const item in apps.database) 
+// {
+// 	//console.log(apps.database[item].title);
+// 	$("#listView").append(
+//   		'<div id="listItem" class="row">' +
+// 			'<div class="col-md-2">' +
+// 				'<img id="img1" src="' + apps.database[item].icon + '" alt="App" width="75" height="75">' +
+// 			'</div>' +
+//   			'<div class="col-md-10">' +
+// 				'<a id="link" href="./app.html?app_id=' + apps.database[item].app_id + '">' + apps.database[item].title + '</a>' +
+// 			'</div>' +
+// 		'</div>'
+//   	);
+// }
 
 $(document).ready(function() {
 	$('#ingredients').multiselect();
 });
 
-
-
-
-
-
-
-var updateList = function(event)
+// compares apps according to their titles
+function compareApps(a,  b)
 {
+	return ('' + a.title).localeCompare(('' + b.title));
+}
+
+function updateList(event)
+{
+	//console.log('called');
 	// empties currently displayed list
 	$("#listView").empty();
 	appsList = [];
@@ -50,7 +51,8 @@ var updateList = function(event)
 	if (inApple.checked)
 	{
 		var tempList = [];
-		for (const item in appsList) {
+		for (const item in appsList) 
+		{
 			if (('' + appsList[item].store).toLowerCase().includes("apple"))
 			{
 				tempList.push(appsList[item]);
@@ -63,7 +65,8 @@ var updateList = function(event)
 	if (inGoogle.checked)
 	{
 		var tempList = [];
-		for (const item in appsList) {
+		for (const item in appsList) 
+		{
 			if (('' + appsList[item].store).toLowerCase().includes("google"))
 			{
 				tempList.push(appsList[item]);
@@ -76,7 +79,8 @@ var updateList = function(event)
 	if (isFree.checked)
 	{
 		var tempList = [];
-		for (const item in appsList) {
+		for (const item in appsList) 
+		{
 			if (appsList[item].price == 0)
 			{
 				tempList.push(appsList[item]);
@@ -89,7 +93,8 @@ var updateList = function(event)
 	if (isPaid.checked)
 	{
 		var tempList = [];
-		for (const item in appsList) {
+		for (const item in appsList) 
+		{
 			if (appsList[item].price > 0)
 			{
 				tempList.push(appsList[item]);
@@ -98,8 +103,32 @@ var updateList = function(event)
 		appsList = tempList;
 	}
 
+	// Switches sort state for alphabetical sort
+	if (event.currentTarget == AtoZ)
+	{
+		ZtoA.checked = !AtoZ.checked;
+	}
+	else if (event.currentTarget == ZtoA)
+	{
+		AtoZ.checked = !ZtoA.checked;
+	}
+
+	// sort by AtoZ
+	if (AtoZ.checked)
+	{
+		appsList.sort(compareApps);
+	}
+
+	// sort by ZtoA
+	if (ZtoA.checked)
+	{
+		appsList.sort(compareApps);
+		appsList.reverse();
+	}
+
 	// displays the updated list of apps
-	for (const item in appsList) {
+	for (const item in appsList) 
+	{
 		$("#listView").append(
 			'<div id="listItem" class="row">' +
 			  '<div class="col-md-2">' +
@@ -140,3 +169,14 @@ isFree.addEventListener('click', updateList, false);
 // Dynamically filters the apps list by isPaid
 const isPaid = document.getElementById("checkbox4");
 isPaid.addEventListener('click', updateList, false);
+
+// Dynamically sorts the apps list by AtoZ
+const AtoZ = document.getElementById("checkbox5");
+AtoZ.addEventListener('click', updateList, false);
+
+// Dynamically sorts the apps list by ZtoA
+const ZtoA = document.getElementById("checkbox6");
+ZtoA.addEventListener('click', updateList, false);
+
+// Makes initial list
+updateList(new MouseEvent("Event"));
