@@ -46,25 +46,51 @@ var updateList = function(event)
 		}
 	}
 
-	// toggles the inGoogle filter
-	if (event.type == 'click')
+	// filters by inApple
+	if (inApple.checked)
 	{
-		if (inGoogle.className == "btn btn-warning")
-		{
-			inGoogle.className = "btn btn-dark";
+		var tempList = [];
+		for (const item in appsList) {
+			if (('' + appsList[item].store).toLowerCase().includes("apple"))
+			{
+				tempList.push(appsList[item]);
+			}
 		}
-		else
-		{
-			inGoogle.className = "btn btn-warning";
-		}	
+		appsList = tempList;
 	}
-
+	
 	// filters by inGoogle
-	if (inGoogle.className == "btn btn-warning")
+	if (inGoogle.checked)
 	{
 		var tempList = [];
 		for (const item in appsList) {
 			if (('' + appsList[item].store).toLowerCase().includes("google"))
+			{
+				tempList.push(appsList[item]);
+			}
+		}
+		appsList = tempList;
+	}
+
+	// filters by isFree
+	if (isFree.checked)
+	{
+		var tempList = [];
+		for (const item in appsList) {
+			if (appsList[item].price == 0)
+			{
+				tempList.push(appsList[item]);
+			}
+		}
+		appsList = tempList;
+	}
+
+	// filters by isFree
+	if (isPaid.checked)
+	{
+		var tempList = [];
+		for (const item in appsList) {
+			if (appsList[item].price > 0)
 			{
 				tempList.push(appsList[item]);
 			}
@@ -100,5 +126,17 @@ searchForm.addEventListener('keypress', function(event) {
 }, false);
 
 // Dynamically filters the apps list by inGoogle
-const inGoogle = document.getElementById("fltr inGoogle");
+const inApple = document.getElementById("checkbox1");
+inApple.addEventListener('click', updateList, false);
+
+// Dynamically filters the apps list by inGoogle
+const inGoogle = document.getElementById("checkbox2");
 inGoogle.addEventListener('click', updateList, false);
+
+// Dynamically filters the apps list by isFree
+const isFree = document.getElementById("checkbox3");
+isFree.addEventListener('click', updateList, false);
+
+// Dynamically filters the apps list by isPaid
+const isPaid = document.getElementById("checkbox4");
+isPaid.addEventListener('click', updateList, false);
