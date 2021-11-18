@@ -1,0 +1,69 @@
+body {
+	padding-top: 120px;
+	background-color: #292929;
+	margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-custom {
+    background-color: black;
+	color: white;
+}
+
+.card {
+    border-radius: 10px;
+    padding: 35px 25px;
+    width: 400px;
+}
+
+.abt {
+    font-size: 14px;
+}
+
+.inputbox {
+    margin-top: 12px;
+    position: relative;
+}
+
+.inputbox input {
+    border: 2px solid #eee;
+    padding: 0 10px;
+}
+
+.inputbox input:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: none;
+    outline: 0;
+    box-shadow: none;
+    border: 2px solid #0d6efd;
+}
+
+.input-tag {
+    position: absolute;
+    top: 27px;
+    left: 7px;
+    width: 32px;
+}
+
+.proceed button {
+    height: 50px;
+    font-size: 15px;
+	margin: ;
+}
+
+.form-check-label {
+    font-size: 12px;
+}
+
+.btn-warning:focus {
+    color: white;
+    background-color: orange;
+    border-color: orange;
+    box-shadow: none;
+}
+
+#signInLink {
+	color: black;
+}

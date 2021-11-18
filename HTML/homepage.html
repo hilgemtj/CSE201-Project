@@ -14,7 +14,9 @@
 		<nav class="navbar navbar-custom navbar-expand-lg navbar-dark fixed-top">
 			<div class="container-fluid">
 				<div style="width: 148.5px; height: 54.5px;">
-					<img alt="Brand" src="../Resources/logo.png" width="100%" height="100%">
+					<a href="./homepage.html">
+						<img alt="Brand" src="../Resources/logo.png" width="100%" height="100%">
+					</a>
 				</div>
 				<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#mynavbar">
 				<span class="navbar-toggler-icon"></span>
@@ -22,22 +24,74 @@
 				<div class="collapse navbar-collapse" id="mynavbar">
 					<ul class="navbar-nav me-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="javascript:void(0)">About</a>
+							<a class="nav-link" href="https://www.youtube.com/watch?v=eBGIQ7ZuuiU">About</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="javascript:void(0)">Create Account</a>
+							<a class="nav-link" href="./createAccount.html">Create Account</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="javascript:void(0)">Login</a>
+							<a class="nav-link" href="./login.html">Login</a>
 						</li>
 					</ul>
-					<form class="d-flex">
-						<input class="form-control me-2" type="text" placeholder="Search">
-						<button class="btn btn-warning" type="button">Search</button>
+					<form id="filterSearch" class="d-inline-flex flex-row">
+						<button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Filters</button>
+
+  <div class="dropdown-menu">
+    <a class="dropdown-item">
+      <!-- Default unchecked -->
+		<p>Store</p>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="checkbox1" unchecked>
+        <label class="custom-control-label" for="checkbox1">Apple App Store</label>
+      </div>
+    </a>
+    <a class="dropdown-item" href="#">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="checkbox2" unchecked>
+        <label class="custom-control-label" for="checkbox2">Google Play</label>
+      </div>
+    </a>
+	<div class="dropdown-divider"></div>
+	  
+    <a class="dropdown-item" href="#">
+		<p>Price</p>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="checkbox3" unchecked>
+        <label class="custom-control-label" for="checkbox3">Free</label>
+      </div>
+    </a>
+    <a class="dropdown-item" href="#">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="checkbox4" unchecked>
+        <label class="custom-control-label" for="checkbox4">Paid</label>
+      </div>
+    </a>
+	<div class="dropdown-divider"></div>
+	  
+    <a class="dropdown-item" href="#">
+		<p>Sort</p>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="checkbox5" checked>
+        <label class="custom-control-label" for="checkbox5">A-Z</label>
+      </div>
+    </a>
+	<a class="dropdown-item" href="#">
+		<div class="custom-control custom-checkbox">
+		  <input type="checkbox" class="custom-control-input" id="checkbox6" unchecked>
+		  <label class="custom-control-label" for="checkbox6">Z-A</label>
+		</div>
+	</a>
+  </div>	
+						<input class="form-control me-2" type="text" placeholder="Search" id="searchForm">
 					</form>
 				</div>
 			</div>
 		</nav>
+		
+		
+		
+		
 		
 		<!-- Div for app list -->
 		<div id="listView"></div>
@@ -48,8 +102,8 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 		
 		<!-- Our scripts -->
-		<script type="text/javascript" src="../JS/app.js"></script>
-		<script type="text/javascript" src="../JS/database.js"></script>
-		<script type="text/javascript" src="../JS/homepage.js"></script>
+		<script type="text/javascript" src="../JS/App.js"></script>
+		<script type="text/javascript" src="../JS/Database.js"></script>
+		<script type="text/javascript" src="../JS/HomePage.js"></script>
 	</body>
 </html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>AppHub - Create Account</title>
+		<meta charset="utf-8">
+		<!-- Bootstrap CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<!-- Our CSS -->
+		<link rel="stylesheet" href="../CSS/accountPages.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<!-- Navbar -->
+		<nav class="navbar navbar-custom navbar-expand-lg navbar-dark fixed-top">
+			<div class="container-fluid">
+				<div style="width: 148.5px; height: 54.5px;">
+					<a href="./homepage.html">
+					<img alt="Brand" src="../Resources/logo.png" width="100%" height="100%">
+					</a>
+				</div>
+				<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="mynavbar">
+					<ul class="navbar-nav me-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="https://www.youtube.com/watch?v=eBGIQ7ZuuiU">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Create Account</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./login.html">Login</a>
+						</li>
+					</ul>
+					
+				</div>
+			</div>
+		</nav>
+		
+		<div id="card" class="card">
+			<div class="text-center">
+				<h3>Create an account</h3>
+				<span class="abt">Already have an account? <a id="signInLink" href="./login.html">Login</a></span>
+			</div>
+			<div class="form mt-3">
+				<div class="inputbox"> <input id="username" type="text" class="form-control" placeholder="Username"> </div>
+				<div class="inputbox"> <input id="email" type="text" class="form-control" placeholder="Email"> </div>
+				<div class="inputbox"> <input id="password" type="password" class="form-control" placeholder="Password"> </div>
+			</div>
+			<div class="mt-4 proceed">
+				<button type="submit" id="createButton" class="btn btn-warning btn-block flex-row col-12">
+					<div class="text-right"> <span>Create account</span> </div>
+					
+				</button>
+			</div>
+		</div>
+		
+	
+		
+		<!-- jQuery, Popper, Bootstrap -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+		<!-- Our scripts -->
+		<script type="text/javascript" src="../JS/User.js"></script>
+		<script type="text/javascript" src="../JS/UserDatabase.js"></script>
+		
+		<script>
+			$(document).ready( function() {
+				$("#createButton").click( function() {
+					console.log("clicked");
+					var username = $("#username").val();
+					var email = $("#email").val();
+					var password = $("#password").val();
+					$("#card").hide();
+				});
+			});
+			
+			const user = {
+  				username: username,
+				email: email,
+  				password: password
+			};
+
+			const jsonString = JSON.stringify(user);
+			fs.writeFile('./userData.json', jsonString, err => {
+				if (err) {
+					console.log('Error writing file', err)
+    			} else {
+        			console.log('Successfully wrote file')
+    			}
+			});
+			
+			loadJSON(db);
+			init();
+			var users = new Database();
+
+
+		</script>
+	</body>
+</html>

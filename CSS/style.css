@@ -24,6 +24,23 @@ body {
 	border-radius: 5px;
 	color: white;
 }
+#filterSearch {
+	max-height: 45px;
+}
+
+
+
+
+#commentSection {
+
+	padding: 15px;
+	margin: 15px;
+	border-style: solid;
+	border-color: orange;
+	border-width: thin;
+	border-radius: 5px;
+	color: white;
+}
 
 #img1 {
 	border-radius: 15%;
@@ -33,6 +50,9 @@ body {
 	font-size: 42px;
 	color: white;
 	text-decoration: inherit;
+}
+#storePar {
+	color: lightgray;
 }
 
 .navbar-custom {
