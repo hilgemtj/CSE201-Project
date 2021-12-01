@@ -65,38 +65,5 @@
 		<!-- Our scripts -->
 		<script type="text/javascript" src="../JS/User.js"></script>
 		<script type="text/javascript" src="../JS/UserDatabase.js"></script>
-		
-		<script>
-			$(document).ready( function() {
-				$("#createButton").click( function() {
-					console.log("clicked");
-					var username = $("#username").val();
-					var email = $("#email").val();
-					var password = $("#password").val();
-					$("#card").hide();
-				});
-			});
-			
-			const user = {
-  				username: username,
-				email: email,
-  				password: password
-			};
-
-			const jsonString = JSON.stringify(user);
-			fs.writeFile('./userData.json', jsonString, err => {
-				if (err) {
-					console.log('Error writing file', err)
-    			} else {
-        			console.log('Successfully wrote file')
-    			}
-			});
-			
-			loadJSON(db);
-			init();
-			var users = new Database();
-
-
-		</script>
 	</body>
 </html>

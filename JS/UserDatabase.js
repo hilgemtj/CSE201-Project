@@ -52,3 +52,53 @@ function Database() {
 function db(something) {
 	return something;
 }
+
+// handles inputting user into database
+
+$(document).ready( function() {
+
+	$("#createButton").click( function() {
+		console.log("clicked");
+		var username = $("#username").val();
+		var email = $("#email").val();
+		var password = $("#password").val();
+		$("#card").hide();
+
+		var userData = {
+			username: username,
+			email: email,
+			password: password
+		}
+
+		$.ajax({
+			type: 'POST',
+			url: 'http://127.0.0.1:2999',
+			data: JSON.stringify(userData),
+			success: function (data) {
+				console.log('success');
+			},
+			error: function (xhr, status, error) {
+				console.log('Error: ' + error.message);
+			}
+		});
+	});
+});
+
+const user = {
+	username: username,
+	email: email,
+	password: password
+};
+
+const jsonString = JSON.stringify(user);
+fs.writeFile('./userData.json', jsonString, err => {
+	if (err) {
+		console.log('Error writing file', err);
+	} else {
+		console.log('Successfully wrote file');
+	}
+});
+
+loadJSON(db);
+init();
+var users = new Database();
